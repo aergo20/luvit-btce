@@ -64,7 +64,7 @@ btce:query("getInfo", {}, function(success, data)
 end)
 
 -- Buy 2 bitcoins for 200$ each / KEY/SECRET required
-btce:query("getInfo", {
+btce:query("Trade", {
   "pair" = "btc_usd",
   "type" = "buy",
   "rate" = "200.0",
