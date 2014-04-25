@@ -6,7 +6,7 @@ BTC-E Trading API for Luvit
 How to use
 ----------
 
-[Download](https://github.com/evandro92/luvit-btce/archive/master.zip) and [extract](http://www.7-zip.org/) `btce.lua` inside your Luvit project (e. g. `modules` directory)
+[Download](https://github.com/evandro92/luvit-btce/archive/master.zip) and extract `btce.lua` inside your Luvit project (e. g. `modules` directory)
 
 ```
 your-luvit-project
@@ -68,7 +68,7 @@ btce:query("Trade", {
   "pair" = "btc_usd",
   "type" = "buy",
   "rate" = "200.0",
-  "amount" = "2.0",
+  "amount" = "2.0"
   }, function(success, data)
   if success then
       p("Success!", data)
