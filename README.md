@@ -46,7 +46,7 @@ btce:fee(function(success, data)
 end)
 
 -- Get bids / NO KEY/SECRET required
-btce:depth(function(success, data)
+btce:depth(20, function(success, data)
   if success then
       p("Success!", data)
   else
