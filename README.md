@@ -6,7 +6,7 @@ BTC-E Trading API for Luvit
 How to use
 ----------
 
-1. [Download](https://github.com/evandro92/luvit-btce/archive/master.zip) and [extract](http://www.7-zip.org/) `btce.lua` inside your Luvit project (e. g. `modules` directory)
+[Download](https://github.com/evandro92/luvit-btce/archive/master.zip) and [extract](http://www.7-zip.org/) `btce.lua` inside your Luvit project (e. g. `modules` directory)
 
 ```
 your-luvit-project
@@ -15,12 +15,12 @@ your-luvit-project
 ...
 ```
     
-2. In any file add:
+In any file add:
 
 ``` lua
 local BTCE = require("btce") -- edit the path to btce.lua here
 
-local btce = BTCE.new(YOUR_API_KEY, YOUR_API_SECRET) -- to get: access your btc-e.com profile and click "API keys"
+local btce = BTCE.new(YOUR_API_KEY, YOUR_API_SECRET) -- does not?: access your btc-e.com profile and click "API keys"
 -- YOUR_API_KEY and YOUR_API_SECRET are OPTIONAL. Add only if you will use the "query" function (see below)
 
 -- set pairs
