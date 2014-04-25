@@ -8,10 +8,12 @@ How to use
 
 1. [Download](https://github.com/evandro92/luvit-btce/archive/master.zip) and [extract](http://www.7-zip.org/) `btce.lua` inside your Luvit project (e. g. modules` directory)
 
-        your-luvit-project
-        |--modules
-        |----btce.lua
-        ...
+```
+your-luvit-project
+|--modules
+|----btce.lua
+...
+```
     
 2. In any file add:
 
