@@ -20,14 +20,14 @@ In any file add:
 ``` lua
 local BTCE = require("btce") -- edit the path to btce.lua here
 
-local btce = BTCE.new(YOUR_API_KEY, YOUR_API_SECRET) -- does not?: access your btc-e.com profile and click "API keys"
+local btce = BTCE.new(YOUR_API_KEY, YOUR_API_SECRET) -- does not? access your btc-e.com profile and click "API keys"
 -- YOUR_API_KEY and YOUR_API_SECRET are OPTIONAL. Add only if you will use the "query" function (see below)
 
 -- set pairs
 btce.pair1 = "btc"
 btce.pair2 = "usd"
 
--- display price / NO KEY/SECRET required
+-- Get prices / NO KEY/SECRET required
 btce:ticker(function(success, data)
   if success then
     p("Success!", data)
@@ -36,7 +36,7 @@ btce:ticker(function(success, data)
   end
 end)
 
--- display fee / NO KEY/SECRET required
+-- Get fee / NO KEY/SECRET required
 btce:fee(function(success, data)
   if success then
       p("Success!", data)
@@ -45,7 +45,7 @@ btce:fee(function(success, data)
   end
 end)
 
--- display bids / NO KEY/SECRET required
+-- Get bids / NO KEY/SECRET required
 btce:depth(function(success, data)
   if success then
       p("Success!", data)
