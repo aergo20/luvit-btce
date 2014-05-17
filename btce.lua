@@ -13,7 +13,7 @@
 
 local HTTPS = require("https")
 local URL = require("url")
-local QUERYSTRING = require("querystring")
+--local QUERYSTRING = require("querystring")
 local OS = require("os")
 local STRING = require("string")
 
