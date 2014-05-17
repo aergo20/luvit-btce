@@ -1,14 +1,15 @@
+-- -------------------------------------------------
 -- BTC-E.com api for Luvit
--- =======================
--- @version	0.2
--- @author	Evandro		<evandro.co>
+-- -------------------------------------------------
+-- @version	0.4
+-- @author	Evandro <evandro.co>
 -- @date	04 25 2014
--- @license	MIT			<opensource.org/licenses/MIT>
---
+-- @license	MIT <opensource.org/licenses/MIT>
+-- -------------------------------------------------
 -- Donations:
--- ----------
 -- BTC:		13uujkFS7g5m3QEeFcg9Ya1oGrXzP1EcFs
 -- LTC:		LZR8yy85K7UtHUFHLig3nPJwbp2uhtKfyq
+-- -------------------------------------------------
 
 local HTTPS = require("https")
 local URL = require("url")
@@ -43,11 +44,11 @@ local HTTPSget = function(url, callback)
 
 	end)
 
-	req:on("error", function()
-		callback(false, nil)
-	end)
-
 	req:done()
+
+	req:on("error", function(err)
+		callback(false, err)
+	end)
 
 end
 
@@ -140,9 +141,8 @@ BTCE.query = function(self, method, options, callback)
 		if post_data ~= "" then
 			post_data = post_data .. "&"
 		end
-		post_data = post_data .. key .. "=" .. QUERYSTRING.urlencode(value)
+		post_data = post_data .. key .. "=" .. value--QUERYSTRING.urlencode(value)
 	end
-
 
 	local sign = CRYPTO.hmac.digest("sha512", post_data, self.secret)
 
@@ -151,8 +151,8 @@ BTCE.query = function(self, method, options, callback)
 	header.headers = {
 		Sign = sign,
 		Key = self.key,
-		["content-type"] = "application/x-www-form-urlencoded",
-		["content-length"] = #post_data,
+		["Content-Type"] = "application/x-www-form-urlencoded",
+		["Content-Length"] = #post_data,
 	}
 
 	local req = HTTPS.request(header, function(res)
@@ -175,13 +175,12 @@ BTCE.query = function(self, method, options, callback)
 
 	end)
 
+	req:write(post_data)
+	req:done()
+
 	req:on("error", function(err)
 		callback(false, err)
 	end)
-
-	req:write(post_data)
-
-	req:done()
 
 end
 
